@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    
+<body dir="ltr">
+
+    <div id="MyClock" class="clock"></div>
+    
+</body>
+
+<script>
+
+    function setTime() {
+        var d = new Date();
+        var hour = d.getHours();
+        var minute = d.getMinutes();
+        var second = d.getSeconds();
+        var p = 'AM';
+
+        if (hour > 12) {
+            hour -= 12;
+            p = 'PM';
+        }
+
+        if (hour < 10) {
+            hour = "0" + hour;
+        }
+
+        if (minute < 10) {
+            minute = "0" + minute;
+        }
+
+        if (second < 10) {
+            second = "0" + second;
+        }
+
+        var clock = hour + ":" + minute + ":" + second + "" + p;
+        document.getElementById("MyClock").innerHTML = clock;
+    }
+    setInterval(setTime, 1000);
+</script>
+</head>
+</html>
